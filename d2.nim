@@ -5,7 +5,7 @@ var n = toSeq(lines("d2.in"))
   .mapIt(split(it, " "))
   .mapIt((it[0][0], it[1].parseInt))
 
-var f, d = 0
+var f, d, a = 0
 
 for x in n:
   case x[0]
@@ -17,7 +17,6 @@ for x in n:
 echo f * d
 
 (f, d) = (0, 0)
-var a = 0
 
 for x in n:
   case x[0]
