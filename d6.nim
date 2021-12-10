@@ -13,7 +13,7 @@ proc play(days: int): int =
     rotateLeft(t, 1)
     t[6] += t[8]
 
-  t.foldr(a+b)
+  t.foldl(a+b)
 
 echo play 80
 echo play 256

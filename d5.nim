@@ -26,6 +26,6 @@ proc draw(d: bool): M =
       elif y0 > y1: dec y0
     inc result[y0][x0]
 
-echo draw(true).mapIt(it.mapIt(it >= 2).count(true)).foldr(a+b)
-echo draw(false).mapIt(it.mapIt(it >= 2).count(true)).foldr(a+b)
+echo draw(true).mapIt(it.mapIt(it >= 2).count(true)).foldl(a+b)
+echo draw(false).mapIt(it.mapIt(it >= 2).count(true)).foldl(a+b)
 

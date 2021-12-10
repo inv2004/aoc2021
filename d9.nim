@@ -27,7 +27,7 @@ proc find2(nn: seq[seq[int]], j, i: int): int =
             n[j+1][i] = -1
             changed = true
 
-  n.mapIt(it.countIt(it < 0)).foldr(a+b)
+  n.mapIt(it.countIt(it < 0)).foldl(a+b)
 
 proc find1(n: seq[seq[int]]): (int, int) =
   var pools:seq[int] = @[]
@@ -43,6 +43,6 @@ proc find1(n: seq[seq[int]]): (int, int) =
         pools.add find2(n, j, i)
 
   pools.sort(order = Descending)
-  result[1] = pools[0..2].foldr(a*b)
+  result[1] = pools[0..2].foldl(a*b)
 
 echo find1(s)

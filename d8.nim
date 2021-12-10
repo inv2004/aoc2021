@@ -2,7 +2,7 @@ import strutils, sequtils, algorithm
 
 type T = array[7, bool]
 
-echo toSeq(lines("d8.in")).mapIt(it.split(" | ")[1].split().mapIt(it.len)).foldr(a&b).countIt(it in [2,4,3,7])
+echo toSeq(lines("d8.in")).mapIt(it.split(" | ")[1].split().mapIt(it.len)).foldl(a&b).countIt(it in [2,4,3,7])
 
 proc strToArr(s: string): T =
   for x in s:
@@ -38,4 +38,4 @@ proc find(s: string): int =
         result += arrToNum [x[p[0]], x[p[1]], x[p[2]], x[p[3]], x[p[4]], x[p[5]], x[p[6]]]
       break
 
-echo toSeq(lines("d8.in")).map(find).foldr(a+b)
+echo toSeq(lines("d8.in")).map(find).foldl(a+b)
