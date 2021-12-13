@@ -9,17 +9,16 @@ let f = input.filterIt(it.len == 1 and it[0].startsWith("fold ")).mapIt((it[0][1
 func wh(ps: T): (int, int) =
   (ps.mapIt(it[0]).max(), ps.mapIt(it[1]).max())
 
-proc `$`(ps: T): string =
+func `$`(ps: T): string =
   let (w, h) = ps.wh()
-  var a = newSeqWith(1 + h, ' '.repeat(1 + w))
+  result = repeat(repeat(' ', 1 + w) & "\n", 1+h)
   for (x, y) in ps:
-    a[y][x] = '#'
-  a.join("\n")
+    result[(2+w)*y+x] = '#'
 
-proc count(ps: T): int =
+func count(ps: T): int =
   deduplicate(ps).len
 
-proc fold(ps: T, f: (char, int)): T =
+func fold(ps: T, f: (char, int)): T =
   let (w, h) = ps.wh()
   for (x, y) in ps:
     if f[0] == 'y' and y > f[1]:
