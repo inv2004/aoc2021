@@ -2,7 +2,7 @@ import sequtils, strutils, tables, itertools, sugar, algorithm, times
 
 type T = Table[string, seq[string]]
 
-let pp = toSeq(lines("d12c.in")).mapIt(it.split("-")).mapIt(@[(it[0], it[1]), (it[1], it[0])]).foldl(a&b)
+let pp = toSeq(lines("d12.in")).mapIt(it.split("-")).mapIt(@[(it[0], it[1]), (it[1], it[0])]).foldl(a&b)
 var p = toSeq(pp.groupBy(x => x[0])).filterIt(it.k != "end").mapIt((it.k, (it.v.mapIt(it[1]).filterIt(it != "start").sorted()))).toTable
 
 proc check(v: openArray[string], n: string): int =
