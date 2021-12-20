@@ -15,7 +15,7 @@ converter toStr(x: seq[bool]): string =
     let s = if x: "1" else: "0"
     result = s & result
 
-var s = toSeq(lines("d3.in"))
+var s = toSeq(lines("in/d3.in"))
 let m = s[0].len
 let n = s.mapIt(fmt"{it:0>64}").map(toBit)
 

@@ -1,7 +1,7 @@
 import sequtils
 import strutils
 
-let f = open("d4.in")
+let f = open("in/d4.in")
 var line: string
 
 assert readLine(f, line)

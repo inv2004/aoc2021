@@ -2,7 +2,7 @@ import strutils, sequtils, algorithm
 
 type T = array[7, bool]
 
-echo toSeq(lines("d8.in")).mapIt(it.split(" | ")[1].split().mapIt(it.len)).foldl(a&b).countIt(it in [2,4,3,7])
+echo toSeq(lines("in/d8.in")).mapIt(it.split(" | ")[1].split().mapIt(it.len)).foldl(a&b).countIt(it in [2,4,3,7])
 
 proc strToArr(s: string): T =
   for x in s:

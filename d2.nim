@@ -1,7 +1,7 @@
 import strutils
 import sequtils
 
-var n = toSeq(lines("d2.in"))
+var n = toSeq(lines("in/d2.in"))
   .mapIt(split(it, " "))
   .mapIt((it[0][0], it[1].parseInt))
 

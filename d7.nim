@@ -1,6 +1,6 @@
 import sequtils, strutils, math, sugar
 
-let n = readFile("d7.in").split(",").map(parseInt)
+let n = readFile("in/d7.in").split(",").map(parseInt)
 
 let a = toSeq(0..n.high).map(i => n.map(x => abs(x - i)))
 

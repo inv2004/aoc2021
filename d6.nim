@@ -2,7 +2,7 @@ import sequtils
 import strutils
 import algorithm
 
-var s = readFile("d6.in").split(",").map(parseInt)
+var s = readFile("in/d6.in").split(",").map(parseInt)
 
 proc play(days: int): int =
   var t = newSeq[int](9)

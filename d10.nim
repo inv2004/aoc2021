@@ -15,6 +15,6 @@ proc check(s: string): (int, int) =
       return (errScore[x], 0)
   return (0, r.reversed().foldl(a*5+compScore[b], 0))
 
-echo toSeq(lines("d10.in")).map(check).mapIt(it[0]).foldl(a+b)
-let r = toSeq(lines("d10.in")).map(check).mapIt(it[1]).filterIt(it > 0).sorted()
+echo toSeq(lines("in/d10.in")).map(check).mapIt(it[0]).foldl(a+b)
+let r = toSeq(lines("in/d10.in")).map(check).mapIt(it[1]).filterIt(it > 0).sorted()
 echo r[r.len div 2]

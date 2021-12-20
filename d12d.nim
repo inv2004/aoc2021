@@ -1,6 +1,6 @@
 import sequtils, strutils, tables, itertools, sugar, algorithm, times
 
-let pp = toSeq(lines("d12.in")).mapIt(it.split("-")).mapIt(@[(it[0], it[1]), (it[1], it[0])]).foldl(a&b)
+let pp = toSeq(lines("in/d12.in")).mapIt(it.split("-")).mapIt(@[(it[0], it[1]), (it[1], it[0])]).foldl(a&b)
 var p = toSeq(pp.groupBy(x => x[0])).filterIt(it.k != "end").mapIt((it.k, (it.v.mapIt(it[1]).filterIt(it != "start").sorted()))).toTable
 
 proc f(a: var seq[seq[string]]): bool =

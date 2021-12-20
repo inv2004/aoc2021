@@ -1,7 +1,7 @@
 import strutils
 import sequtils
 
-var n = toSeq(lines("d1.in")).map(parseInt)
+var n = toSeq(lines("in/d1.in")).map(parseInt)
 
 func countInc(x: auto): int =
   toSeq(x[0..^2]).zip(x[1..^1]).mapIt(it[1] > it[0]).count(true)

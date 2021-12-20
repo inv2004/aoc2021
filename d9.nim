@@ -1,6 +1,6 @@
 import sequtils, strutils, algorithm
 
-let s = toSeq(lines("d9.in")).mapIt(it.mapIt(int(it)-int('0')))
+let s = toSeq(lines("in/d9.in")).mapIt(it.mapIt(int(it)-int('0')))
 
 # proc `$`(n: seq[seq[int]]): string =
 #   n.mapIt(it.join()).join("\n")

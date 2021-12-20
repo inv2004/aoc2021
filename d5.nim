@@ -5,7 +5,7 @@ const sz = 1000
 
 type M = array[sz,array[sz,int]]
 
-let n = toSeq(lines("d5.in")).mapIt(it.split(" -> ")).mapIt(it.mapIt(it.split(",").map(parseInt))).mapIt(it[0][0..1]&it[1][0..1])
+let n = toSeq(lines("in/d5.in")).mapIt(it.split(" -> ")).mapIt(it.mapIt(it.split(",").map(parseInt))).mapIt(it[0][0..1]&it[1][0..1])
 
 proc `$`(x: M): string =
   x.mapIt(it.mapIt(if it == 0: '.' else: char(int('0')+it)).join()).join("\n")

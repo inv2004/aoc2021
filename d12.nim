@@ -2,7 +2,7 @@ import sequtils, strutils, tables, itertools, sugar, algorithm
 
 type T = Table[system.string, seq[TaintedString]]
 
-let pp = toSeq(lines("d12.in")).mapIt(it.split("-")).mapIt(@[(it[0], it[1]), (it[1], it[0])]).foldl(a&b)
+let pp = toSeq(lines("in/d12.in")).mapIt(it.split("-")).mapIt(@[(it[0], it[1]), (it[1], it[0])]).foldl(a&b)
 let p = toSeq(pp.groupBy(x => x[0])).mapIt((it.k, it.v.mapIt(it[1]).sorted())).toTable
 
 proc go(p: T, c: Table[string, int], room = "start"): seq[string] =

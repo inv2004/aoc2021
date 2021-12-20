@@ -2,7 +2,7 @@ import sequtils, strutils, sets
 
 type T = HashSet[(int, int)]
 
-let input = toSeq(lines("d13.in")).filterIt(it.len > 0).mapIt(it.split(","))
+let input = toSeq(lines("in/d13.in")).filterIt(it.len > 0).mapIt(it.split(","))
 let d = input.filterIt(it.len == 2).mapIt(it.map(parseInt)).mapIt((it[0], it[1])).toHashSet
 let f = input.filterIt(it.len == 1).mapIt((it[0][11], it[0][13..^1].parseInt))
 

@@ -2,7 +2,7 @@ import sequtils
 
 type T = seq[seq[int]]
 
-var f = toSeq(lines("d11.in")).mapIt(it.mapIt(int(it)-int('0')))
+var f = toSeq(lines("in/d11.in")).mapIt(it.mapIt(int(it)-int('0')))
 
 # proc `$`(f: T): string =
 #    f.mapIt(it.join()).join("\n") & "\n"
