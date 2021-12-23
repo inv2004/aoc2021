@@ -6,28 +6,37 @@ assert readLine(fl, t)
 
 echo t
 
-var m = initTable[string, string]()
+var m = initTable[string, char]()
 
 var line: string
 assert readLine(fl, line)
 while readLine(fl, line):
   let p = line.split(" -> ")
-  m[p[0]] = p[0][0] & p[1][0] & p[0][1]
+  m[p[0]] = p[1][0]
 
 echo m
 
-proc f(t: string): string =
-  let h = t.high - 1
-  for i in 0..h:
-    let k = t[i..i+1]
-    if i < h:
-      result.add m[k][0..1]
-    else:
-      result.add m[k]
+var cache = initTable[(string, int), CountTable[char]]()
 
-for i in 1..40:
-  echo i
-  t = f(t)
+proc pair(k: string, til: int, d = 1): CountTable[char] =
+  if (k, d) in cache:
+    return cache[(k, d)]
+  let v = m[k]
+  result.inc (v)
+  if d < til:
+    result.merge(pair(k[0]&v, til, d+1))
+    result.merge(pair(v&k[1], til, d+1))
+  cache[(k, d)] = result
 
-let tc = t.toCountTable
-echo tc.largest[1] - tc.smallest[1]
+proc f(t: string, lvl: int): int =
+  var ct = initCountTable[char]()
+  ct.inc t[^1]
+  for i in 0..<t.high:
+    ct.inc t[i]
+    ct.merge pair(t[i..i+1], lvl)
+  echo ct.largest[1], " - ", ct.smallest[1]
+  ct.largest[1] - ct.smallest[1]
+
+echo f(t, 10)
+cache.clear()
+echo f(t, 40)
