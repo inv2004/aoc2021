@@ -34,7 +34,6 @@ proc f(t: string, lvl: int): int =
   for i in 0..<t.high:
     ct.inc t[i]
     ct.merge pair(t[i..i+1], lvl)
-  echo ct.largest[1], " - ", ct.smallest[1]
   ct.largest[1] - ct.smallest[1]
 
 echo f(t, 10)
