@@ -14,8 +14,6 @@ while readLine(fl, line):
   let p = line.split(" -> ")
   m[p[0]] = p[1][0]
 
-echo m
-
 var cache = initTable[(string, int), CountTable[char]]()
 
 proc pair(k: string, til: int, d = 1): CountTable[char] =
