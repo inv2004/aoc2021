@@ -4,8 +4,6 @@ let fl = open("in/d14.in")
 var t: string
 assert readLine(fl, t)
 
-echo t
-
 var m = initTable[string, char]()
 
 var line: string
