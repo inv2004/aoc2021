@@ -33,5 +33,5 @@ for i in 1..50:
   img = img.f(inverted)
   if i in [2, 50]:
     echo img.mapIt(it.count('#')).foldl(a+b)
-  if enc[0] == '#' and enc[^1] == '.':
+  if enc[0] == '#':
     inverted = not inverted
